@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Helpdesk | Lifestyle Rewards</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #ff2e2e;
+            color: white;
+            padding: 1px;
+            text-align: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 24px;
+            border-top: 30px solid #ff2e2e;
+        }
+
+        nav {
+            background-color: #ff2e2e;
+            padding: 0px;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            border-bottom: 40px solid #ff2e2e;
+            font-size: large;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+            position: relative; 
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            left: 50%;
+            transform: translateX(-50%); /* Center the dropdown */
+            top: 100%; /* Position it below the menu item */
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown-active .dropdown-content {
+            display: block;
+        }
+
+        section {
+            display: flex;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        article {
+            flex: 1;
+            padding: 20px;
+            display: none;
+        }
+
+        article h1 {
+            color: rgb(0, 106, 255);
+            margin-top: 0;
+        }
+
+        article p {
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: #ff2e2e;
+            padding: 10px;
+            text-align: center;
+            color: white;
+            margin-top: 20px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            section {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>Helpdesk</h2>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#rewards">Rewards</a></li>
+        <li><a href="deals.html">Deals</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li class="dropdown" id="helpdesk-dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Helpdesk</a>
+            <div class="dropdown-content">
+                <a href="#" onclick="showArticle(event, 'faq')">Frequently Asked Questions</a>
+                <a href="#" onclick="showArticle(event, 'contact')">Contact Us</a>
+                <a href="#" onclick="showArticle(event, 'support')">Support</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+<section>
+    <article id="faq">
+        <h1>Frequently Asked Questions</h1>
+        <p><strong>Q: How do I redeem my rewards?</strong><br>A: Log into your account, go to the rewards section, and follow the instructions to redeem.</p>
+        <p><strong>Q: What types of rewards can I earn?</strong><br>A: You can earn discounts, gift cards, and exclusive experiences.</p>
+        <p><strong>Q: How can I reset my password?</strong><br>A: Click on "Forgot Password" on the login page and follow the prompts.</p>
+    </article>
+
+    <article id="contact">
+        <h1>Contact Us</h1>
+        <p>If you have questions or need assistance, reach out to our support team:</p>
+        <p>Email: <a href="mailto:support@lifestylerewards.com">support@lifestylerewards.com</a></p>
+        <p>Phone: <a href="tel:+18001234567">1-800-123-4567</a></p>
+    </article>
+
+    <article id="support">
+        <h1>Support</h1>
+        <p>Visit our support center for additional resources:</p>
+        <p><a href="https://www.lifestylerewards.com/support" target="_blank">Support Center</a></p>
+        <p><a href="https://www.lifestylerewards.com/guides" target="_blank">User Guides</a></p>
+        <p><a href="https://www.lifestylerewards.com/community" target="_blank">Community Forum</a></p>
+    </article>
+</section>
+
+<footer>
+    <p>&copy; 2024 Perks Rewards</p>
+</footer>
+
+<script>
+    function showArticle(event, articleId) {
+        event.preventDefault();
+        const articles = document.querySelectorAll('article');
+        articles.forEach(article => article.style.display = 'none');
+        const selectedArticle = document.getElementById(articleId);
+        if (selectedArticle) {
+            selectedArticle.style.display = 'block';
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        showArticle(event, 'faq'); // Show FAQs by default
+    });
+
+    document.getElementById('helpdesk-dropdown').addEventListener('click', function() {
+        this.classList.toggle('dropdown-active');
+    });
+
+    // Close dropdown if clicked outside
+    window.addEventListener('click', function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            const dropdowns = document.querySelectorAll('.dropdown-content');
+            dropdowns.forEach(dropdown => {
+                if (dropdown.style.display === 'block') {
+                    dropdown.style.display = 'none';
+                }
+            });
+        }
+    });
+</script>
+
+</body>
+</html>

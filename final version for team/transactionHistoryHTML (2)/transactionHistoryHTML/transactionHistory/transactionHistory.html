@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Lifestyle Rewards</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Perks</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#rewards">Rewards</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="deals.html">Deals</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+        <h1>Welcome, User</h1>
+    <h2>In this page, you can view your account's previous transaction, history and even the current balance</h2>
+    <p>So Far, you contain: 50,000 redemption points!</p>
+    <br><br>
+    <div class = "transactionHistory">
+        <table>
+            <tr>
+              <th>Date</th>
+              <th>Activity</th>
+              <th>Transaction Points</th>
+            </tr>
+            <tr>
+                <td>24-07-2020</td>
+                <td>Redemption of points</td>
+                <td>100,000</td>
+            </tr>
+            <tr>
+                <td>12-08-2020</td>
+                <td>Redemption of Apple Iphone reward</td>
+                <td>35,000</td>
+            </tr>
+        </table>
+    </div>
+    <br><br>
+    <section id="update">
+        <h2>Update User Profile</h2>
+
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="details">Other details:</label>
+            <textarea id="details" name = "details" required></textarea>
+            
+            <button type="submit" onclick = updateProfile()>Update Profile</button>
+        </form>
+    </section>
+
+    <script>
+        function updateProfile(name){
+            if (confirm("Do You wish to Update your Profile?") == true) {
+                alert("Profile has been updated!");
+                document.getElementById("username").innerHTML = "User";
+            } 
+            else {
+                alert("Profile update has been cancelled");
+            }
+        }
+    </script>
+    <footer>
+        <p> 2024 Perks Rewards</p>
+    </footer>
+    </body>
+
+    <!-- CSS stylesheet
+     Basic Code for CSS
+     body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #ff2e2e;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+}
+
+
+nav ul {
+    list-style: none;
+    
+    
+}
+
+nav ul li {
+    display: inline;
+    margin: 20px
+   
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 2em;
+}
+
+section {
+    margin-bottom: 2em;
+}
+
+     form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-top: 0.5em;
+}
+
+form input, form textarea {
+    margin-top: 0.5em;
+    padding: 0.5em;
+    border: 1px solid #ddd;
+}
+
+form button {
+    margin-top: 1em;
+    padding: 0.5em;
+    background-color: #3c393a;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #ff2e2e;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+    ###Added css for transactionHistoryHTML###
+     table{
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd
+}
+
+th, td{
+    padding: 12px;
+    text-align: left;
+}
+
+th{
+    background-color: #f2f2f2;
+}-->
